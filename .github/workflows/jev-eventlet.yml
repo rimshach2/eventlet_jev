@@ -1,3 +1,4 @@
+
 name: JEV Eventlet Experiment
 
 on:
@@ -17,10 +18,12 @@ jobs:
       - name: Checkout historical Eventlet commit
         uses: actions/checkout@v4
         with:
-          ref: 3ec6317d
+          ref: 3ec6317dfc39403ff9e8aed88123bceb9b20a819
+          fetch-depth: 0
 
       - name: Verify Eventlet commit
         run: |
+          echo "Testing Eventlet commit:"
           git rev-parse HEAD
           git log -1 --oneline
 
