@@ -164,6 +164,20 @@ jobs:
           create_check_run: 'true'
           low_confidence_policy: warn
 
+      - name: Debug JEV API status
+        if: always()
+        env:
+          JEV_STATUS: ${{ steps.flaky.outputs.jev_status }}
+          JEV_PROPOSED: ${{ steps.flaky.outputs.jev_proposed }}
+          JEV_CONFIDENCE: ${{ steps.flaky.outputs.confidence }}
+          JEV_PROVIDER: ${{ steps.flaky.outputs.jev_provider }}
+        run: |
+          echo "JEV Status: $JEV_STATUS"
+          echo "JEV Proposed: $JEV_PROPOSED"
+          echo "JEV Confidence: $JEV_CONFIDENCE"
+          echo "JEV Provider: $JEV_PROVIDER"
+
+
       # 8. Display Jev classification
       - name: Display JEV results
         if: always()
