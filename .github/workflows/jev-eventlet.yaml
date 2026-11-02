@@ -149,20 +149,6 @@ jobs:
           print(f"Prepared {len(results)} test results.")
           PY
 
-
-      # Check whether GitHub is actually injecting the Vercel API key
-      - name: Check AI Gateway key is available
-        if: always()
-        env:
-          AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}
-        run: |
-          if [ -n "$AI_GATEWAY_API_KEY" ]; then
-            echo "AI_GATEWAY_API_KEY is present."
-            echo "Key length: ${#AI_GATEWAY_API_KEY}"
-          else
-            echo "AI_GATEWAY_API_KEY is NOT present."
-          fi
-          
       # 7. Classify failures using the actual Jev decision model
       - name: Classify failures with JEV
         id: flaky
