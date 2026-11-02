@@ -32,7 +32,7 @@ jobs:
 
           RUN_IDS=$(gh run list \
             --repo "$REPOSITORY" \
-            --workflow jev-eventlet.yml \
+            --workflow jev-eventlet.yaml \
             --branch jev-experiment \
             --limit 50 \
             --json databaseId \
