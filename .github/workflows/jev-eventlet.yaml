@@ -1,6 +1,9 @@
 name: JEV Eventlet Experiment
 
 on:
+  push:
+    branches:
+      - jev-experiment
   workflow_dispatch:
 
 permissions:
